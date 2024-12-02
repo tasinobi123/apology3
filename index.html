@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry 😔</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 50px;
+        }
+        h1 {
+            color: #ff6f61;
+        }
+        button {
+            margin: 15px;
+            padding: 15px 25px;
+            font-size: 18px;
+            cursor: pointer;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .options {
+            margin-top: 30px;
+        }
+        .options button {
+            background-color: #007bff;
+        }
+        .options button:hover {
+            background-color: #0056b3;
+        }
+        .sweetMessage {
+            margin-top: 30px;
+            font-size: 20px;
+            color: #d9534f;
+        }
+    </style>
+</head>
+<body>
+    <h1>I'm Really Sorry 😔</h1>
+    <button onclick="forgiveMe()">Okay, Forgiven?</button>
+    <p id="message">Please forgive me... 💖</p>
+
+    <div class="options" style="display:none;" id="makeItUpOptions">
+        <h2>Now that you’ve forgiven me, how can I make it up to you?</h2>
+        <button onclick="showOption('Massage')">Give You a Massage</button>
+        <button onclick="showOption('Movie Night')">Movie Night</button>
+        <button onclick="showOption('Cuddle')">Cuddle</button>
+        <button onclick="showOption('Ice Cream')">Ice Cream</button>
+        <button onclick="showOption('Dinner')">Romantic Dinner</button>
+        <button onclick="showOption('Surprise')">Surprise You</button>
+    </div>
+
+    <div id="response" style="display:none;">
+        <h2>Thank you for forgiving me!</h2>
+        <p id="responseText"></p>
+        <button onclick="showSweetMessage()">Show Me Some Love ❤️</button>
+    </div>
+
+    <div class="sweetMessage" id="sweetMessage" style="display:none;">
+        <p>Every moment with you is my favorite. I love you more than words can say! 💖</p>
+        <p>I'm so lucky to have you in my life! 😘</p>
+        <button onclick="resetPage()">Start Over</button>
+    </div>
+
+    <script>
+        function forgiveMe() {
+            document.getElementById('message').style.display = 'none';
+            document.querySelector('button').style.display = 'none';
+            document.getElementById('makeItUpOptions').style.display = 'block';
+        }
+
+        function showOption(option) {
+            document.getElementById('makeItUpOptions').style.display = 'none';
+            document.getElementById('response').style.display = 'block';
+            document.getElementById('responseText').textContent = `You chose: ${option}! I’ll make it the best! 💕`;
+        }
+
+        function showSweetMessage() {
+            document.getElementById('response').style.display = 'none';
+            document.getElementById('sweetMessage').style.display = 'block';
+        }
+
+        function resetPage() {
+            document.getElementById('sweetMessage').style.display = 'none';
+            document.getElementById('message').style.display = 'block';
+            document.querySelector('button').style.display = 'block';
+            document.getElementById('makeItUpOptions').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
